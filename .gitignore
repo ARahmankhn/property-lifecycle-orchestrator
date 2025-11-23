@@ -1,0 +1,11 @@
+# Ignore temp files
+*.tmp
+*.log
+*.zip
+
+# Orchestrate exports (if sensitive)
+*.json.secret
+
+# OS junk
+.DS_Store
+Thumbs.db
