@@ -1,0 +1,40 @@
+# Sample watsonx Orchestrate Agent Export (YAML format)
+version: "1.0"
+orchestrator:
+  name: Property Lifecycle Orchestrator
+  style: ReAct
+  model: granite-3.1
+  instructions: |
+    Delegate buy/sell/service requests to collaborators. Always use live web first.
+
+collaborators:
+  - name: Property Research Agent
+    tools: [web_search, browse_page]
+    instructions: |
+      Live search Immobilienscout24 + neighborhood analysis.
+
+  - name: CRM Master Agent
+    tools: [salesforce_create_lead, hubspot_update_deal]
+    instructions: |
+      Sync leads/opportunities with property details.
+
+  - name: Scheduler & Outreach Agent
+    tools: [google_calendar_create_event, gmail_send]
+    instructions: |
+      Book viewings + send brochures.
+
+  - name: Listing & Pricing Agent
+    tools: [web_search]
+    instructions: |
+      Comps-based pricing + descriptions.
+
+  - name: Service Ticket Agent
+    tools: [slack_post, google_sheets_append]
+    instructions: |
+      Create tickets + escalate.
+
+knowledge_sources:
+  - name: RealEstateFAQs.pdf
+  - name: PropertyDB.csv
+
+# Export date: 2025-11-23
